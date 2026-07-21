@@ -1,0 +1,83 @@
+<idea-plugin>
+    <id>com.gtone.sqlplugin</id>
+    <name>SQL Macro</name>
+    <vendor email="dev@example.com">GTONE</vendor>
+    <description>
+        Run configurable SQL templates from Database Tools editor shortcuts using the current selection or identifier under the caret.
+    </description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationService serviceImplementation="com.gtone.sqlplugin.settings.SqlMacroSettingsService"/>
+        <applicationConfigurable
+                parentId="tools"
+                instance="com.gtone.sqlplugin.settings.SqlMacroConfigurable"
+                id="com.gtone.sqlplugin.settings"
+                displayName="SQL Macro"/>
+    </extensions>
+
+    <actions>
+        <action id="SqlMacro.RunSlot1"
+                class="com.gtone.sqlplugin.actions.RunSqlMacro1Action"
+                text="Run SQL Macro 1"
+                description="Run SQL macro slot 1">
+            <keyboard-shortcut keymap="$default" first-keystroke="alt 1"/>
+        </action>
+        <action id="SqlMacro.RunSlot2"
+                class="com.gtone.sqlplugin.actions.RunSqlMacro2Action"
+                text="Run SQL Macro 2"
+                description="Run SQL macro slot 2">
+            <keyboard-shortcut keymap="$default" first-keystroke="alt 2"/>
+        </action>
+        <action id="SqlMacro.RunSlot3"
+                class="com.gtone.sqlplugin.actions.RunSqlMacro3Action"
+                text="Run SQL Macro 3"
+                description="Run SQL macro slot 3">
+            <keyboard-shortcut keymap="$default" first-keystroke="alt 3"/>
+        </action>
+        <action id="SqlMacro.RunSlot4"
+                class="com.gtone.sqlplugin.actions.RunSqlMacro4Action"
+                text="Run SQL Macro 4"
+                description="Run SQL macro slot 4">
+            <keyboard-shortcut keymap="$default" first-keystroke="alt 4"/>
+        </action>
+        <action id="SqlMacro.RunSlot5"
+                class="com.gtone.sqlplugin.actions.RunSqlMacro5Action"
+                text="Run SQL Macro 5"
+                description="Run SQL macro slot 5">
+            <keyboard-shortcut keymap="$default" first-keystroke="alt 5"/>
+        </action>
+        <action id="SqlMacro.RunSlot6"
+                class="com.gtone.sqlplugin.actions.RunSqlMacro6Action"
+                text="Run SQL Macro 6"
+                description="Run SQL macro slot 6">
+            <keyboard-shortcut keymap="$default" first-keystroke="alt 6"/>
+        </action>
+        <action id="SqlMacro.RunSlot7"
+                class="com.gtone.sqlplugin.actions.RunSqlMacro7Action"
+                text="Run SQL Macro 7"
+                description="Run SQL macro slot 7">
+            <keyboard-shortcut keymap="$default" first-keystroke="alt 7"/>
+        </action>
+        <action id="SqlMacro.RunSlot8"
+                class="com.gtone.sqlplugin.actions.RunSqlMacro8Action"
+                text="Run SQL Macro 8"
+                description="Run SQL macro slot 8">
+            <keyboard-shortcut keymap="$default" first-keystroke="alt 8"/>
+        </action>
+        <action id="SqlMacro.RunSlot9"
+                class="com.gtone.sqlplugin.actions.RunSqlMacro9Action"
+                text="Run SQL Macro 9"
+                description="Run SQL macro slot 9">
+            <keyboard-shortcut keymap="$default" first-keystroke="alt 9"/>
+        </action>
+        <action id="SqlMacro.RunSlot0"
+                class="com.gtone.sqlplugin.actions.RunSqlMacro0Action"
+                text="Run SQL Macro 0"
+                description="Run SQL macro slot 0">
+            <keyboard-shortcut keymap="$default" first-keystroke="alt 0"/>
+        </action>
+    </actions>
+</idea-plugin>

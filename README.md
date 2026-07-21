@@ -1,4 +1,4 @@
-# SQL Macro
+# Jetbrains_SQLPlugin
 
 Database Tools editor shortcut macros for DataGrip and IntelliJ IDEA that expand `\$Var` from the current selection or identifier under the caret.
 

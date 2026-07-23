@@ -19,7 +19,7 @@ abstract class BaseRunSqlMacroAction(private val slot: String) : AnAction(), Dum
         e.presentation.isEnabledAndVisible =
             editor != null &&
                 psiFile != null &&
-                isSqlEditor(psiFile) &&
+                isSqlEditor(psiFile) && 
                 template.enabled &&
                 template.sql.isNotBlank()
     }

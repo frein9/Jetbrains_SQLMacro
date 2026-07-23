@@ -1,10 +1,15 @@
 package com.gtone.sqlplugin.settings
 
 import com.intellij.openapi.options.BoundConfigurable
+import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.openapi.ui.DialogPanel
+import com.intellij.ui.components.JBScrollPane
+import com.intellij.ui.components.JBTextArea
 import com.intellij.ui.dsl.builder.bindSelected
 import com.intellij.ui.dsl.builder.bindText
 import com.intellij.ui.dsl.builder.panel
+import java.awt.Dimension
+import javax.swing.JComponent
 
 class SqlMacroConfigurable : BoundConfigurable("SQL Macro") {
     override fun createPanel(): DialogPanel {
@@ -21,11 +26,32 @@ class SqlMacroConfigurable : BoundConfigurable("SQL Macro") {
                     val template = service.templateFor(slot)
                     row("Alt+$slot") {
                         checkBox("Enabled").bindSelected(template::enabled)
-                        textField()
-                            .bindText(template::sql)
+                        val sqlField = textField().bindText(template::sql).component
+                        button("Edit SQL...") {
+                            val dialog = SqlMacroEditorDialog(slot, sqlField.text)
+                            if (dialog.showAndGet()) {
+                                sqlField.text = dialog.sql
+                            }
+                        }
                     }
                 }
             }
         }
     }
+}
+
+private class SqlMacroEditorDialog(slot: String, initialSql: String) : DialogWrapper(true) {
+    private val sqlEditor = JBTextArea(initialSql, 20, 88)
+
+    init {
+        title = "Edit SQL Macro (Alt+$slot)"
+        init()
+    }
+
+    override fun createCenterPanel(): JComponent = JBScrollPane(sqlEditor).apply {
+        preferredSize = Dimension(780, 460)
+    }
+
+    val sql: String
+        get() = sqlEditor.text
 }

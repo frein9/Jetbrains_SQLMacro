@@ -1,0 +1,7 @@
+.agents/
+.gradle/
+.idea/
+.intellijPlatform/
+.kotlin/
+build/
+
